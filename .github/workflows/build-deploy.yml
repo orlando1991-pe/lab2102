@@ -6,7 +6,7 @@ on:
 
 env:
   REGION: us-central1
-  REGISTRY: us-central1-docker.pkg.dev
+  REGISTRY: europe-west1-docker.pkg.dev
   REPO: agent-repo
   CLUSTER_NAME: test-cluster-a
 
