@@ -46,6 +46,30 @@ jobs:
           gcloud auth configure-docker ${{ env.REGISTRY }}
 
       # ─────────────────────────────────────
+      #  Escaneo de seguridad — Backend
+      # ─────────────────────────────────────
+      - name: Trivy scan backend image
+        uses: aquasecurity/trivy-action@0.33.1
+        with:
+          image-ref: '${{ env.REGISTRY }}/${{ secrets.PROJECT_ID }}/${{ env.REPO }}/agent-backend:${{ github.sha }}'
+          format: 'table'
+          exit-code: '1'
+          severity: 'CRITICAL,HIGH'
+          ignore-unfixed: true
+
+      # ─────────────────────────────────────
+      #  Escaneo de seguridad — Frontend
+      # ─────────────────────────────────────
+      - name: Trivy scan frontend image
+        uses: aquasecurity/trivy-action@0.33.1
+        with:
+          image-ref: '${{ env.REGISTRY }}/${{ secrets.PROJECT_ID }}/${{ env.REPO }}/agent-frontend:${{ github.sha }}'
+          format: 'table'
+          exit-code: '1'
+          severity: 'CRITICAL,HIGH'
+          ignore-unfixed: true
+
+      # ─────────────────────────────────────
       # Build y Push — Backend (Python)
       # ─────────────────────────────────────
       - name: Build backend image
