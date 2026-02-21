@@ -6,9 +6,9 @@
 
   vars:
     project_id: "{{ lookup('env', 'PROJECT_ID') }}"
-    region: "us-central1"
-    cluster_name: "test-cluster-a"
-    registry_base: "us-central1-docker.pkg.dev/{{ project_id }}/agent-repo"
+    region: "europe-west1"
+    cluster_name: "lab2102"
+    registry_base: "europe-west1-docker.pkg.dev/{{ project_id }}/agent-repo"
     namespace: "ucm-master"
     k8s_dir: "{{ playbook_dir }}/../k8s"
     # image_tag se pasa como --extra-vars
