@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: agent-frontend
-          image: us-central1-docker.pkg.dev/PROJECT_ID/agent-repo/agent-frontend:IMAGE_TAG
+          image: europe-west1-docker.pkg.dev/PROJECT_ID/agent-repo/agent-frontend:IMAGE_TAG
           ports:
             - containerPort: 80
           resources:
